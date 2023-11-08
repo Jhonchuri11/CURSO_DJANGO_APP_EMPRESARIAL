@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +28,10 @@ SECRET_KEY = 'django-insecure-*koxw_^!*ulffugcvlxp!2e$a&4ouh!c%wtl@f#--yg_gwtcl8
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+# Clase para el uso de alertas | Mensajaeria que permitirá el uso en Django
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
 
 # Application definition
@@ -78,8 +84,12 @@ WSGI_APPLICATION = 'paneladmin.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'db_tecsup',
+        'USER': 'root',
+        'PASSWORD': '12345678',
+        'HOST': '127.0.0.1',
+        'PORT': '33066',
     }
 }
 

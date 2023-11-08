@@ -3,7 +3,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Alumnos</h1>
+    <h1 class="h3 mb-2 text-gray-800">Profesores</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -22,18 +22,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- LISTADO DE ALUMNOS -->
-                         {%for alumno in alumnos %}
+                        <!-- LISTADO DE PROFESORES -->
+                         {% for pro in profesores %}
                         <tr>
-                            <td>{{alumno.alumno_id}}</td>
-                            <td>{{alumno.alumno_nombre}}</td>
-                            <td>{{alumno.alumno_email}}</td>
+                            <td>{{ pro.profesor_id }}</td>
+                            <td>{{ pro.profesor_nombre }}</td>
+                            <td>{{ pro.profesor_email }}</td>
                             <td>
-                                <a type="button" class="btn btn-danger" id="eliminarBtn" data-alumno-id="{{ alumno.alumno_id }}">
+                                <a type="button" class="btn btn-danger" id="eliminarBtn" data-alumno-id="{{ pro.profesor_id }}">
                                     Eliminar
                                 </a>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editarAlumno" data-alumno-id="{{ alumno.alumno_id }}">Editar</button>
-                                <p>{{alumno.alumno_id}}</p>
                             </td>
                         </tr>
                          {% endfor %}
@@ -41,8 +39,8 @@
                     </tbody>
                 </table>
             </div>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nuevoUsuario">
-                Nuevo Alumno
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nuevoProfesor">
+                Nuevo Profesor
               </button>
         </div>
     </div>
@@ -53,11 +51,10 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('eliminarBtn').addEventListener('click', function () {
-        const alumnoId = this.getAttribute('data-alumno-id');
-  
+        const profesorId = this.getAttribute('data-alumno-id');
         Swal.fire({
           title: '¿Estás seguro?',
-          text: 'Este registro se eliminará permanentemente.',
+          text: 'El registro se eliminará permanentemente.',
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#d33',
@@ -67,7 +64,7 @@
         }).then((result) => {
           if (result.isConfirmed) {
             // Redirige a la vista de eliminación después de la confirmación.
-            window.location.href = `/eliminarAlumno/${alumnoId}/`;
+            window.location.href = `/eliminarProfesor/${profesorId}/`;
           }
         });
       });

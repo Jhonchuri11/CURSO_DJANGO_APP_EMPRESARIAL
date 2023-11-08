@@ -66,8 +66,17 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                
+                    {% if messages %}
+                       {% for me in messages %}
+                           {{me}}
+                       {% endfor %}
+                    {% endif %}
+
                     {% block content %}
+                    {% endblock %}
+
+                    {% block mensaje %}
+
                     {% endblock %}
                     <!-- Page Heading -->
                 
@@ -127,7 +136,12 @@
     <!-- Custom scripts for all pages-->
     <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
 
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 {% include 'modals.html' %}
+
+{% include 'editar_alumno.html' %}
 
 </body>
 </html>
