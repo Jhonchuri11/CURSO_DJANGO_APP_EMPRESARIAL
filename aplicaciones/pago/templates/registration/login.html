@@ -1,0 +1,26 @@
+{% extends 'plantilla/base.html' %}
+
+{% block title  %} login {% endblock %}
+
+{% block content %}
+<div class="bg-info d-flex justify-content-center align-items-center vh-100">
+<div class="bg-white p-5 rounded-5 text-secondary" >
+    <div class="d-flex justify-content-center">
+       <form method="post">
+        {% csrf_token %}
+        <div class="text-center fs-1 fw-bold">Login</div>
+        <div class="input-group mt-3">
+            <input class="form-control" type="text" name="username" placeholder="Usuario" required>
+        </div>
+        <div class="input-group mt-3">
+            <input class="form-control" type="password" name="password" placeholder="Contraseña" required>
+        </div>
+        <div class="input-group mt-3">
+            <button class="btn btn-outline-success" type="submit" >Iniciar sesión</button>
+        </div>
+    </form>
+    </div>
+</div>
+</div>
+   
+{% endblock %}

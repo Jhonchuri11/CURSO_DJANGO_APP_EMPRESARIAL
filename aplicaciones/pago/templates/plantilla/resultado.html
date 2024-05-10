@@ -1,0 +1,31 @@
+{% extends 'plantilla/base.html' %}
+
+{% block title  %} Resultado {% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">    
+    <div class="alert alert-primary text-center bg-white p-5 rounded-5 text-secondary" role="alert">
+      <form>
+        <h2 class="text-center">Resultado </h2>
+        <div class="mb-2">
+          <label for="valor1">Número de horas trabajadas: </label>
+          <input type="text" name="valor1" value="{{ valor1 }}" readonly>
+      </div>
+      <div class="mb-2">
+          <label for="valor1">Pago por hora: </label>
+          <input type="text" name="valor2" value="{{ valor2 }}" readonly>
+      </div>
+      <div class="mb-2">
+          <label for="operacion">Número de hijos: </label>
+          <input type="text" name="valor3" value="{{ valor3 }}" readonly>
+      </div>
+      <div class="mb-2">
+        <label for="operacion">Pago semanal: </label>
+        <input type="text" name="valor3" value="{{ resultado }}" readonly>
+      </div>
+      <a href="{% url 'plantilla:index' %}" class="btn btn-outline-success">Nuevo cálculo</a>
+      </form>
+    </div>
+</div>
+{% endblock %}
