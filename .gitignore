@@ -1,6 +1,6 @@
 
-/application1/migrations/
+application1/migrations/
 
-/application1/__pycache__/
+application1/__pycache__/
 
 db.sqlite3
