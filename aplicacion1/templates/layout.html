@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SHOESALVA</title>
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/shop.css' %}" rel="stylesheet">
+    <link href="{% static 'css/estilo.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
+      <div class="container">
+        <a class="titulo navbar-brand" href="#"><span>S</span><sp style="color: red;">HO</sp>ES<span style="color: red;">AL</span>VA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'calzados:index' %}"><span >INICIO</span>
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'calzados:negocio' %}">ÚNETE A CATÁLOGO</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3">
+          <h3 class="categorias my-4">CATEGORIAS</h3>
+          <div class="list-group">
+          {% for cat in categoria_list %}
+            <a href="{% url 'calzados:categoria' cat.id %}" class="list-group-item">{{ cat.nombre }}</a>
+            {% endfor %}
+          
+          </div>
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+          <!-- Block Content -->
+          {% block content %}
+          {% endblock content %}
+          <!-- /Block Content -->
+          
+        </div>
+        <!-- /.col-lg-9 -->
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; De SHOESALVA 2023 para el PERÚ</p><br>
+        <h4 class="text-center text-white">INVERSIONES RUBIN ´SS.A.C - RUC 20427799973</h4>
+      </div>
+      <!-- /.container -->
+    </footer>
+    {% block det %}
+    {% endblock det %}
+    <style>
+      body {
+        background-color: rgb(255, 255, 255);
+      }
+      .navbar  {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        background-color: rgb(83, 41, 107);
+        
+      }
+
+      .list-group-item {
+        background-color: rgb(228, 215, 236);
+        color: rgb(83, 41, 107);
+        font-weight: lighter;
+        text-decoration: none;
+      }
+      footer {
+        background-color: rgb(83, 41, 107);
+      }
+
+      .categorias {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(83, 41, 107);
+       
+      }
+      .nav-link {
+        font-weight: bolder;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .carousel-image {
+        width: 900px;
+        height: 450px;
+        object-fit: cover;
+      }
+      .carousel-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .nombre {
+        color: rgb(83, 41, 107);
+        font-weight: bolder;
+      }
+      .nombres {
+        color: rgb(83, 41, 107);
+        font-weight: bold;
+        text-decoration-color: rgb(83, 41, 107);
+        text-decoration: none;
+      }
+      .tienda {
+        color: rgb(139, 110, 155);
+        text-align: justify;
+      }
+      td {
+        padding: 5px 10px;
+        border: 1px solid #ccc; /* Agrega bordes a las celdas */
+      }
+
+      td {
+        display: inline-block; /* Hace que las celdas se muestren horizontalmente */
+        margin-right: 10px; /* Espacio entre las celdas */
+      }
+      .card-footer {
+        background-color: rgb(139, 110, 155);
+      }
+      .card {
+        border: 1px solid rgb(200, 185, 207);
+      }
+      .btn-agregar {
+        background-color: rgb(83, 41, 107);
+        color: aliceblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bolder;
+        border-radius: 4px;
+        padding: 10px;
+        text-decoration: none;
+      }
+      .bi {
+        border: 1px solid rgb(83, 41, 107);
+        padding: 12px;
+        border-radius: 4px;
+      }
+      i {
+        border: 3px solid red;
+        background-color: rgb(200, 185, 207);
+      }
+      .product-image {
+        width: 100%; /* Ancho deseado para la imagen */
+        height: 100%; /* Alto deseado para la imagen */
+        object-fit: cover; /* Ajustar la imagen manteniendo la relación de aspecto */
+      }
+      .carousel {
+        border: 1px solid rgb(232, 230, 233);
+      }
+      .negocio {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(139, 110, 155);
+      }
+      .negocio-2 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(83, 41, 107);
+      }
+      .Beneficios {
+        color: rgb(83, 41, 107);
+        font-weight: bolder;
+      }
+    </style>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  </body>
+</html>
